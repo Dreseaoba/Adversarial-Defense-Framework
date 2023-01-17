@@ -1,0 +1,48 @@
+# running info
+exp_name: 'dfd_dae_half_cut'
+save_path: 'results/'
+
+
+# model info
+atk: 'sticker'
+defenses: [
+  # {
+  #   'name': 'SpatialSmoothing',
+  #   'args': [],
+  #   'kwargs': {
+  #     'window_size': 21
+  #   }
+  # },
+  # {
+  #   'name': 'JPEG',
+  #   'args': [],
+  #   'kwargs': {
+  #     'quality': 75
+  #   }
+  # },
+  # {
+  #   'name': 'BitDepth',
+  #   'args': [],
+  #   'kwargs': {
+  #     'compressed_bit': 6
+  #   }
+  # },
+  {
+    'name': 'DAE',
+    'args': [],
+    'kwargs': {
+      'model': 'dae',
+      'res_output': False,
+      'ckpt': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/results/2022-12-11_19:17_dfd_trn_dae_dae_half_cut/ckpts/ae_20.pth'
+    }
+  },
+]
+model: 'efficientb7'
+# model: 'mpvit'
+
+
+# data info
+batch_size: 4
+data_path: 'b7'
+# data_path: 'mpvit'
+# data_path: 'multi'

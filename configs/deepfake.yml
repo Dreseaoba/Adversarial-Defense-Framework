@@ -1,0 +1,63 @@
+# running info
+exp_name: 'dfd_ffmpeg_crf30'
+save_path: 'results/debug'
+
+
+# model info
+atk: 'sticker'
+defenses: [
+  # {
+  #   'name': 'SpatialSmoothing',
+  #   'args': [],
+  #   'kwargs': {
+  #     'window_size': 21
+  #   }
+  # },
+  # {
+  #   'name': 'JPEG',
+  #   'args': [],
+  #   'kwargs': {
+  #     'quality': 75
+  #   }
+  # },
+  # {
+  #   'name': 'BitDepth',
+  #   'args': [],
+  #   'kwargs': {
+  #     'compressed_bit': 6
+  #   }
+  # },
+  # {
+  #   'name': 'DAE',
+  #   'args': [],
+  #   'kwargs': {
+  #     'model': 'unet',
+  #     'res_output': True,
+  #     'ckpt': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/results/2022-12-28_18:28_dfd_trn_unet_coslr001_align/ckpts/ae_50.pth'
+  #   }
+  # },
+  # {
+  #   'name': 'DUNET',
+  #   'args': [],
+  #   'kwargs': {
+  #     'res_output': True,
+  #     'ckpt': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/results/2023-01-06_15:42_dfd_trn_dunet_coslr01_align_epoch100/ckpts/dunet_92.pth'
+  #   }
+  # },
+  {
+    'name': 'MultiFilter',
+    'args': [],
+    'kwargs': {
+      'ckpt': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/results/2023-01-07_17:00_dfd_trn_mf_coslr001_align/ckpts/dunet_26.pth'
+    }
+  },
+]
+model: 'efficientb7'
+# model: 'mpvit'
+
+
+# data info
+batch_size: 4
+data_path: 'b7'
+# data_path: 'mpvit'
+# data_path: 'multi'

@@ -1,0 +1,83 @@
+# running info
+exp_name: 'dfd_trn_mf_coslr001_align'
+save_path: 'results/'
+
+
+# model info
+atk: 'sticker'
+defenses: [
+  # {
+  #   'name': 'SpatialSmoothing',
+  #   'args': [],
+  #   'kwargs': {
+  #     'window_size': 21
+  #   }
+  # },
+  # {
+  #   'name': 'JPEG',
+  #   'args': [],
+  #   'kwargs': {
+  #     'quality': 75
+  #   }
+  # },
+  # {
+  #   'name': 'BitDepth',
+  #   'args': [],
+  #   'kwargs': {
+  #     'compressed_bit': 6
+  #   }
+  # },
+  # {
+  #   'name': 'PIN',
+  #   'args': [],
+  #   'kwargs': {
+  #     'devices': [0,1]
+  #   }
+  # },
+  # {
+  #   'name': 'DAE',
+  #   'args': [],
+  #   'kwargs': {
+  #     'model': 'dae',
+  #     'res_output': True
+  #   }
+  # },
+  # {
+  #   'name': 'DUNET',
+  #   'args': [],
+  #   'kwargs': {
+  #     'res_output': True,
+  #     # 'ckpt': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/results/2022-12-28_18:28_dfd_trn_dunet_coslr001_align/ckpts/dunet_50.pth'
+  #   }
+  # },
+  {
+    'name': 'MultiFilter',
+    'args': [],
+    'kwargs': {
+      # 'ckpt': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/results/2022-12-28_18:28_dfd_trn_dunet_coslr001_align/ckpts/dunet_50.pth'
+    }
+  },
+]
+model: 'efficientb7'
+# model: 'mpvit'
+
+
+# data info
+batch_size: 4
+data_path: 'b7'
+# data_path: 'mpvit'
+# data_path: 'multi'
+
+# training args
+train_args: {
+  'max_epoch': 50,
+  'batch_size': 4,
+  'lr': 0.01,
+  'sch': 'cos',
+  'decay_step': 2,
+  'decay_rate': 0.5,
+  'norm_lambda': 0,
+  'data_path': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/datasets/deepfake/train_ae_align/ori', 
+  'noise_path': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/datasets/deepfake/train_ae_align/adv',
+  'valid_path': '/data/guohaoxun/workspace/atk/AdvDefenseFramework/datasets/deepfake/valid_ae_align/'
+}

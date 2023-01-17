@@ -1,0 +1,19 @@
+# running info
+exp_name: 'debug'
+save_path: 'results/debug'
+
+
+# model info
+atk: 'sticker'
+defense: 'SpatialSmoothing'
+dfs_args: []
+dfs_kwargs: {
+  'window_size': 11
+}
+
+fr_model: 'ArcFace'
+
+
+# data info
+data_path: 'datasets/sticker_30'
+
